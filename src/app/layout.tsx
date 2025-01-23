@@ -4,7 +4,6 @@ import { ReactNode } from "react"
 import { twMerge } from "tailwind-merge"
 import SessionProvider from "components/auth/SessionProvider"
 import { auth } from "auth"
-import { getTheme } from "@/library/server/theme"
 
 const customFont = Inter({ subsets: ["latin"], variable: "--custom-font" })
 
@@ -18,9 +17,9 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const session = await auth()
-  const theme = await getTheme()
+
   return (
-    <html lang="en" className={twMerge(`${customFont.variable} font-sans`, theme === "dark" && "dark")}>
+    <html lang="en" className={twMerge(`${customFont.variable} font-sans`)}>
       <body className={"min-w-[320px] min-h-dvh flex flex-col"}>
         <SessionProvider session={session}>{children}</SessionProvider>
       </body>
