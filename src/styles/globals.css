@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../../tailwind.config.cjs';
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -27,8 +29,9 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -56,11 +59,168 @@
     --chart-5: 340 75% 55%
   }
 }
+
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@theme {
+  --font-sans: var(--custom-font);
+
+  --color-white: white;
+  --color-transparent: transparent;
+
+  --color-hue-50:  black;
+  --color-hue-100: black;
+  --color-hue-200: black;
+  --color-hue-300: black;
+  --color-hue-400: black;
+  --color-hue-500: black;
+  --color-hue-600: black;
+  --color-hue-700: black;
+  --color-hue-800: black;
+  --color-hue-900: black;
+  --color-hue-950: black;
+
+  --color-primary-50: oklch(95.00% 0.02 235);
+  --color-primary-100: oklch(91.00% 0.04 235);
+  --color-primary-200: oklch(88.00% 0.07 235);
+  --color-primary-300: oklch(84.0% 0.11 235);
+  --color-primary-400: oklch(70.00% 0.15 235);
+  --color-primary-500: oklch(59.00% 0.16 235);
+  --color-primary-600: oklch(55.00% 0.15 235);
+  --color-primary-700: oklch(50.00% 0.12 235);
+  --color-primary-800: oklch(44.00% 0.10 235);
+  --color-primary-900: oklch(37.00% 0.09 235);
+  --color-primary-950: oklch(30.00% 0.06 235);
+
+
+  --color-secondary-50: oklch(95.00% 0.02 190);
+  --color-secondary-100: oklch(91.00% 0.05 190);
+  --color-secondary-200: oklch(88.00% 0.07 190);
+  --color-secondary-300: oklch(84.0% 0.11 190);
+  --color-secondary-400: oklch(70.00% 0.15 190);
+  --color-secondary-500: oklch(59.00% 0.13 190);
+  --color-secondary-600: oklch(55.00% 0.10 190);
+  --color-secondary-700: oklch(50.00% 0.08 190);
+  --color-secondary-800: oklch(44.00% 0.075 190);
+  --color-secondary-900: oklch(37.00% 0.06 190);
+  --color-secondary-950: oklch(30.00% 0.06 190);
+
+  --color-danger-50: oklch(95.00% 0.0293 13);
+  --color-danger-100: oklch(91.00% 0.05 13);
+  --color-danger-200: oklch(88.00% 0.07 13);
+  --color-danger-300: oklch(84.0% 0.09 13);
+  --color-danger-400: oklch(70.00% 0.18 13);
+  --color-danger-500: oklch(59.00% 0.23 13);
+  --color-danger-600: oklch(55.00% 0.21 13);
+  --color-danger-700: oklch(50.00% 0.18 13);
+  --color-danger-800: oklch(44.00% 0.14 13);
+  --color-danger-900: oklch(37.00% 0.10 13);
+  --color-danger-950: oklch(30.00% 0.08 13);
+
+
+  --color-success-50: oklch(95.00% 0.02 150);
+  --color-success-100: oklch(91.00% 0.07 150);
+  --color-success-200: oklch(88.00% 0.12 150);
+  --color-success-300: oklch(84.0% 0.14 150);
+  --color-success-400: oklch(70.00% 0.17 150);
+  --color-success-500: oklch(59.00% 0.19 150);
+  --color-success-600: oklch(55.00% 0.15 150);
+  --color-success-700: oklch(50.00% 0.13 150);
+  --color-success-800: oklch(44.00% 0.12 150);
+  --color-success-900: oklch(37.00% 0.09 150);
+  --color-success-950: oklch(30.00% 0.08 150);
+
+
+  --color-neutral-50: oklch(99.00% 0.00 235);
+  --color-neutral-100: oklch(94.00% 0.002 235);
+  --color-neutral-200: oklch(86.00% 0.004 235);
+  --color-neutral-300: oklch(80.00% 0.004 235);
+  --color-neutral-400: oklch(70.00% 0.006 235);
+  --color-neutral-500: oklch(60.00% 0.006 235);
+  --color-neutral-600: oklch(50.00% 0.006 235);
+  --color-neutral-700: oklch(40.00% 0.006 235);
+  --color-neutral-800: oklch(30.00% 0.006 235);
+  --color-neutral-900: oklch(25.00% 0.006 235);
+  --color-neutral-950: oklch(19.60% 0.006 235);
+}
+
+@layer components {
+  .primary {
+    --color-hue-50: var(--color-primary-50);
+    --color-hue-100: var(--color-primary-100);
+    --color-hue-200: var(--color-primary-200);
+    --color-hue-300: var(--color-primary-300);
+    --color-hue-400: var(--color-primary-400);
+    --color-hue-500: var(--color-primary-500);
+    --color-hue-600: var(--color-primary-600);
+    --color-hue-700: var(--color-primary-700);
+    --color-hue-800: var(--color-primary-800);
+    --color-hue-900: var(--color-primary-900);
+    --color-hue-950: var(--color-primary-950);
+  }
+
+  .secondary {
+    --color-hue-50: var(--color-secondary-50);
+    --color-hue-100: var(--color-secondary-100);
+    --color-hue-200: var(--color-secondary-200);
+    --color-hue-300: var(--color-secondary-300);
+    --color-hue-400: var(--color-secondary-400);
+    --color-hue-500: var(--color-secondary-500);
+    --color-hue-600: var(--color-secondary-600);
+    --color-hue-700: var(--color-secondary-700);
+    --color-hue-800: var(--color-secondary-800);
+    --color-hue-900: var(--color-secondary-900);
+    --color-hue-950: var(--color-secondary-950);
+  }
+
+  .danger {
+    --color-hue-50: var(--color-danger-50);
+    --color-hue-100: var(--color-danger-100);
+    --color-hue-200: var(--color-danger-200);
+    --color-hue-300: var(--color-danger-300);
+    --color-hue-400: var(--color-danger-400);
+    --color-hue-500: var(--color-danger-500);
+    --color-hue-600: var(--color-danger-600);
+    --color-hue-700: var(--color-danger-700);
+    --color-hue-800: var(--color-danger-800);
+    --color-hue-900: var(--color-danger-900);
+    --color-hue-950: var(--color-danger-950);
+  }
+
+  .success {
+    --color-hue-50: var(--color-success-50);
+    --color-hue-100: var(--color-success-100);
+    --color-hue-200: var(--color-success-200);
+    --color-hue-300: var(--color-success-300);
+    --color-hue-400: var(--color-success-400);
+    --color-hue-500: var(--color-success-500);
+    --color-hue-600: var(--color-success-600);
+    --color-hue-700: var(--color-success-700);
+    --color-hue-800: var(--color-success-800);
+    --color-hue-900: var(--color-success-900);
+    --color-hue-950: var(--color-success-950);
+  }
+
+  .neutral {
+    --color-hue-50: var(--color-neutral-50);
+    --color-hue-100: var(--color-neutral-100);
+    --color-hue-200: var(--color-neutral-200);
+    --color-hue-300: var(--color-neutral-300);
+    --color-hue-400: var(--color-neutral-400);
+    --color-hue-500: var(--color-neutral-500);
+    --color-hue-600: var(--color-neutral-600);
+    --color-hue-700: var(--color-neutral-700);
+    --color-hue-800: var(--color-neutral-800);
+    --color-hue-900: var(--color-neutral-900);
+    --color-hue-950: var(--color-neutral-950);
+  }
+  
 }

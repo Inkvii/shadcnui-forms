@@ -51,7 +51,7 @@ export function FormContainer() {
   }
 
   return (
-    <div className={"w-1/2 mx-auto p-8 bg-white rounded-lg shadow"}>
+    <div className={"w-1/2 mx-auto p-8 bg-white rounded-lg shadow-sm"}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className={"flex flex-col gap-4"}>
           <FormField
