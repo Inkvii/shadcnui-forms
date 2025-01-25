@@ -22,8 +22,9 @@ export function DatePicker(props: Props) {
       <PopoverTrigger asChild>
         <FormControl>
           <Button
+            hue={"neutral"}
             variant={"outline"}
-            className={cn("w-[240px] pl-3 text-left font-normal", !props.value && "text-muted-foreground")}
+            className={cn("w-[240px] pl-3 text-left font-normal border-neutral-400", !props.value && "text-neutral-400")}
           >
             {props.value ? format(props.value, "PPP") : <span>Pick a date</span>}
             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />

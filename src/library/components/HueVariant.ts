@@ -1,0 +1,1 @@
+export type HueVariant = "primary" | "secondary" | "success" | "danger" | "neutral"
